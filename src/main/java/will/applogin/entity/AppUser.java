@@ -23,6 +23,10 @@ import javax.persistence.*;
         @Column(name = "ENABLED", length = 1, nullable = false)
         private boolean enabled;
 
+        public Long getUserId(){
+            return userId;
+        }
+
         public void setUserId(Long userId) {
             this.userId = userId;
         }
