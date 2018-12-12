@@ -1,4 +1,4 @@
-package will.controller;
+package will.applogin.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -15,7 +15,7 @@ import java.security.Principal;
 @Controller
 public class MainController {
 
-    @GetMapping(value = { "/", "/welcome" })
+    @GetMapping(value = "/")
     public ModelAndView welcomePage() {
         ModelAndView modelAndView = new ModelAndView("welcomePage");
         modelAndView.addObject("title","Welcome");
