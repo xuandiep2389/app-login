@@ -5,16 +5,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class EncryptedPasswordUtils {
     // Encrypte Password with BCryptPasswordEncoder
-    public static String encryptePassword(String password) {
+    public static String encryptedPassword(String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(password);
     }
 
     public static void main(String[] args) {
         String password = "123";
-        String encrytedPassword = encryptePassword(password);
+        String encryptedPassword = encryptedPassword(password);
 
-        System.out.println("Encrypted Password: " + encrytedPassword);
+        System.out.println("Encrypted Password: " + encryptedPassword);
     }
 
 }

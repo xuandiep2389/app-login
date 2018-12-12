@@ -4,19 +4,23 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import will.applogin.utils.WebUtils;
 
 import java.security.Principal;
 
 @Controller
 public class MainController {
-    @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
-    public String welcomePage(Model model) {
-        model.addAttribute("title", "Welcome");
-        model.addAttribute("message", "This is welcome page!");
-        return "welcomePage";
+
+    @GetMapping(value = { "/", "/welcome" })
+    public ModelAndView welcomePage() {
+        ModelAndView modelAndView = new ModelAndView("welcomePage");
+        modelAndView.addObject("title","Welcome");
+        modelAndView.addObject("message","This is welcome page");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
