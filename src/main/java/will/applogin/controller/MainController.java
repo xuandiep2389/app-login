@@ -15,7 +15,7 @@ import java.security.Principal;
 @Controller
 public class MainController {
 
-    @GetMapping(value = "/")
+    @GetMapping(value = {"/","/welcome"})
     public ModelAndView welcomePage() {
         ModelAndView modelAndView = new ModelAndView("welcomePage");
         modelAndView.addObject("title","Welcome");

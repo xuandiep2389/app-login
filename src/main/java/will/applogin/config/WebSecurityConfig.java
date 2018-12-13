@@ -43,14 +43,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.csrf().disable();
 
         // Các trang khong yeu cau login
-        httpSecurity.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/", "/login", "/logout","/book/list").permitAll();
 
         // trang /userInfo yeu cau phai login voi vai tro ROLE_USER hoac ROLE_ADMIN
         // neu chua login thi redirect ve trang login
-        httpSecurity.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+        httpSecurity.authorizeRequests().antMatchers("/userInfo","/book/view/**").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
 
         //trang chi danh cho admin
-        httpSecurity.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
+        httpSecurity.authorizeRequests().antMatchers("/admin","/book/create","/book/delete/**","/book/edit/**").access("hasRole('ROLE_ADMIN')");
 
         // khi nguoi dung  da login, voi vai tro XX
         // nhung truy cap voi vai tro YY
