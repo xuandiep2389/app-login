@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Book</title>
+</head>
+<body>
+<span th:if="message" th:text="${message}"></span>
+<form th:action="@{/book/create}" method="post" th:object="${book}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Author:</td>
+            <td><input type="text" th:field="*{author}"></td>
+            <td th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</td>
+
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td><input type="text" th:field="*{type}"></td>
+            <td th:if="${#fields.hasErrors('type')}" th:errors="*{type}">Type Error</td>
+
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td><input type="text" th:field="*{amount}"></td>
+            <td th:if="${#fields.hasErrors('type')}" th:errors="*{amount}">Amount Error</td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Create new Book"/></td>
+        </tr>
+
+    </table>
+
+    <a th:href="@{/book/list}">Back to list</a>
+</form>
+
+</body>
+</html>
