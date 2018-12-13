@@ -3,7 +3,7 @@ package will.applogin.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "APP_ROLE", uniqueConstraints = {@UniqueConstraint(name = "APP_ROLE_UK", columnNames = "ROLE_NAME")})
+@Table(name = "app_role", uniqueConstraints = {@UniqueConstraint(name = "APP_ROLE_UK", columnNames = "ROLE_NAME")})
 public class AppRole {
 
     @Id

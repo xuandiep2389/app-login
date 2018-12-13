@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 
     @Entity
-    @Table(name = "APP_USER", //
+    @Table(name = "app_user", //
             uniqueConstraints = { //
                     @UniqueConstraint(name = "APP_USER_UK", columnNames = "USER_NAME") })
     public class AppUser {
